@@ -52,7 +52,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position:absolute;
+  position: absolute;
   right: 8px;
   top: 50%;
   bottom: 50%;
@@ -80,7 +80,7 @@ body {
 }
 
 /* li */
-#ul-container-list li{
+#ul-container-list li {
   list-style: none;
   display: flex;
   gap: 10px;
@@ -88,14 +88,14 @@ body {
   border-bottom: var(--border-bottom-list);
 }
 
-#ul-container-list li i{
+#ul-container-list li i {
   margin-left: auto;
 }
 
 #clearbtn-list {
   border: none;
   width: var(--width-table-content);
-  padding: var(--padding-table-content); 
+  padding: var(--padding-table-content);
   color: rgba(128, 128, 128, 0.622);
   cursor: pointer;
 }
