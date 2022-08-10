@@ -4,8 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wbpack Exercise</title>
+
+    <!-- Link to FontAwesome page -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" 
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"/>
+
 <script defer src="main.js"></script></head>
 <body>
-    <h1>Hello webpack!</h1>
+    <div id="container-list">
+
+        <h1 id="toDoList-title"><span>Today's To Do</span><i class="fas fa-sync"></i></h1> 
+        <div id="div-container-inputList">
+            <input placeholder="Add to your list... " id="input-list" type="text">
+            <i id="icon-input" class="fas fa-hand-point-left"></i>
+        </div>
+
+        <!-- Space/ul to prinf the array from JavaScript -->
+        <ul id="ul-container-list"></ul>
+
+        <button type="submit" id="clearbtn-list">Clear all completed</button>
+
+    </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
