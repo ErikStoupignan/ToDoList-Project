@@ -10,6 +10,26 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/addAndRemove.js":
+/*!*****************************!*\
+  !*** ./src/addAndRemove.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Crud)\n/* harmony export */ });\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, \"prototype\", { writable: false }); return Constructor; }\n\nvar arrayList = [{\n  description: 'Wash the dishes',\n  complete: false,\n  index: 0\n}];\n\nvar Crud = /*#__PURE__*/function () {\n  function Crud() {\n    _classCallCheck(this, Crud);\n  }\n\n  _createClass(Crud, null, [{\n    key: \"add\",\n    value: function add() {\n      console.log(arrayList);\n      return arrayList;\n    }\n  }]);\n\n  return Crud;\n}();\n\n\n\n//# sourceURL=webpack://todolist-project/./src/addAndRemove.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _addAndRemove_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addAndRemove.js */ \"./src/addAndRemove.js\");\n// import _ from 'lodash';\n\n // const arrayList = [\n//   {\n//     description: 'Wash the dishes',\n//     complete: false,\n//     index: 0,\n//   }\n// ];\n\nfunction displayList() {\n  document.getElementById('ul-container-list').innerHTML = arrayList.map(function (items) {\n    return \"<li id=\\\"listElement\".concat(items.index, \"\\\"><input name=\\\"listElement\").concat(items.index, \"\\\" type=\\\"checkbox\\\"> \").concat(items.description, \" <i class=\\\"fas fa-ellipsis-v\\\"></i></li>\");\n  }).join('');\n}\n\ndisplayList();\nconsole.log(_addAndRemove_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].add());\ndocument.getElementById('ul-container-list').addEventListener('click', function (e) {\n  document.getElementById(\"\".concat(e.target.name)).classList.toggle('text-crossLine');\n});\ndocument.getElementById('clearbtn-list').addEventListener('click', function () {\n  document.getElementById('ul-container-list').innerHTML = '<li class=\"testing-btn\"> Testing delete list for 2 seconds </li>';\n  setInterval(displayList, 2000);\n});\n\n//# sourceURL=webpack://todolist-project/./src/index.js?");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/style.css":
 /*!*************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
@@ -107,26 +127,6 @@ eval("\n\n/* istanbul ignore next  */\nfunction apply(styleElement, options, obj
 /***/ ((module) => {
 
 eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElement) {\n  if (styleElement.styleSheet) {\n    styleElement.styleSheet.cssText = css;\n  } else {\n    while (styleElement.firstChild) {\n      styleElement.removeChild(styleElement.firstChild);\n    }\n\n    styleElement.appendChild(document.createTextNode(css));\n  }\n}\n\nmodule.exports = styleTagTransform;\n\n//# sourceURL=webpack://todolist-project/./node_modules/style-loader/dist/runtime/styleTagTransform.js?");
-
-/***/ }),
-
-/***/ "./src/addAndRemove.js":
-/*!*****************************!*\
-  !*** ./src/addAndRemove.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Crud)\n/* harmony export */ });\n\r\n\r\n\r\n\r\nclass Crud  {\r\n  constructor () {\r\n  }\r\n\r\n  add () {\r\n    const arrayList = [\r\n      {\r\n        description: 'Wash the dishes',\r\n        complete: false,\r\n        index: 0,\r\n      }\r\n    ];\r\n    return arrayList;\r\n  }\r\n}\r\n\r\n\n\n//# sourceURL=webpack://todolist-project/./src/addAndRemove.js?");
-
-/***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _addAndRemove_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addAndRemove.js */ \"./src/addAndRemove.js\");\n// import _ from 'lodash';\n\n\nconst crud = new _addAndRemove_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"] ();\n\n// const arrayList = [\n//   {\n//     description: 'Wash the dishes',\n//     complete: false,\n//     index: 0,\n//   },\n//   {\n//     description: 'Complete the project',\n//     complete: false,\n//     index: 1,\n//   },\n//   {\n//     description: 'Take a walk',\n//     complete: false,\n//     index: 2,\n//   },\n// ];\n\n\nfunction displayList() {\n  document.getElementById('ul-container-list').innerHTML = arrayList.map((items) => `<li id=\"listElement${items.index}\"><input name=\"listElement${items.index}\" type=\"checkbox\"> ${items.description} <i class=\"fas fa-ellipsis-v\"></i></li>`).join('');\n}\ndisplayList();\n\nconsole.log(crud.add());\n\n\ndocument.getElementById('ul-container-list').addEventListener('click', (e) => {\n  document.getElementById(`${e.target.name}`).classList.toggle('text-crossLine');\n});\n\ndocument.getElementById('clearbtn-list').addEventListener('click', () => {\n  document.getElementById('ul-container-list').innerHTML = (\n    '<li class=\"testing-btn\"> Testing delete list for 2 seconds </li>'\n  );\n  setInterval(displayList, 2000);\n});\n\n\n//# sourceURL=webpack://todolist-project/./src/index.js?");
 
 /***/ })
 
