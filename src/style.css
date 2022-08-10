@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+i {
+  opacity: 50%;
+}
+
+:root {
+  --width-table-content: 100%;
+  --padding-table-content: 10px;
+  --border-bottom-list: 1px solid rgba(128, 128, 128, 0.164);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  background-color: rgba(192, 189, 189, 0.381);
+  color: gray;
+}
+
+/* div container */
+#container-list {
+  box-shadow: 0 0 20px;
+  background-color: white;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 25vh;
+  max-width: 500px;
+  grid-auto-rows: auto;
+  cursor: pointer;
+}
+
+/* title of the list */
+#toDoList-title {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding-table-content);
+  border-bottom: var(--border-bottom-list);
+}
+
+/* input to add books */
+#div-container-inputList {
+  display: flex;
+  position: relative;
+}
+
+#icon-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  bottom: 50%;
+  cursor: text;
+}
+
+#input-list {
+  width: var(--width-table-content);
+  padding: var(--padding-table-content);
+  border: none;
+  outline: none;
+  border-bottom: var(--border-bottom-list);
+}
+
+::placeholder {
+  border: none;
+  font-style: oblique;
+  opacity: 50%;
+  outline: none;
+}
+
+/* ul */
+#ul-container-list {
+  list-style: none;
+}
+
+/* li */
+#ul-container-list li {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: var(--padding-table-content);
+  border-bottom: var(--border-bottom-list);
+}
+
+#ul-container-list li i {
+  margin-left: auto;
+}
+
+#clearbtn-list {
+  border: none;
+  width: var(--width-table-content);
+  padding: var(--padding-table-content);
+  color: rgba(128, 128, 128, 0.622);
+  cursor: pointer;
+}
+
+.testing-btn {
+  display: flex;
+  justify-content: center;
+  color: red;
+}
+
+.text-crossLine {
+  text-decoration: line-through !important;
+}
