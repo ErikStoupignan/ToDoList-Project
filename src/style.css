@@ -8,6 +8,10 @@ i {
   opacity: 50%;
 }
 
+i:hover {
+  color: rgb(0, 0, 0);
+}
+
 :root {
   --width-table-content: 100%;
   --padding-table-content: 10px;
@@ -15,6 +19,8 @@ i {
 }
 
 body {
+  width: 100vw;
+  overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   background-color: rgba(192, 189, 189, 0.381);
@@ -27,9 +33,12 @@ body {
   background-color: white;
   width: 80%;
   margin: 0 auto;
-  margin-top: 25vh;
+  margin-top: 5vw;
   max-width: 500px;
+  max-height: 80vh;
   grid-auto-rows: auto;
+
+  /* overflow-y: scroll; */
   cursor: pointer;
 }
 
@@ -59,12 +68,21 @@ body {
   cursor: text;
 }
 
-#input-list {
+.input-list-Main {
   width: var(--width-table-content);
   padding: var(--padding-table-content);
   border: none;
   outline: none;
   border-bottom: var(--border-bottom-list);
+}
+
+.input-list {
+  border: none;
+  background-color: transparent;
+  width: var(--width-table-content);
+  outline: none;
+  padding: 0;
+  margin: 0;
 }
 
 ::placeholder {
@@ -77,6 +95,8 @@ body {
 /* ul */
 #ul-container-list {
   list-style: none;
+  overflow-y: scroll;
+  max-height: 60vh;
 }
 
 /* li */
@@ -100,12 +120,70 @@ body {
   cursor: pointer;
 }
 
-.testing-btn {
-  display: flex;
-  justify-content: center;
-  color: red;
+/* Modal menu delet each element */
+.delet-Container-eachelement {
+  background-color: rgba(32, 29, 126, 0.084);
+  backdrop-filter: blur(0.2rem);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.text-crossLine {
-  text-decoration: line-through !important;
+.delet-btn-eachElement {
+  display: flex;
+  margin: 300px auto;
+  border: none;
+  background-color: rgb(247, 70, 70);
+  color: white;
+  border-radius: 20%;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 25px;
+  box-shadow: 2px 2px 2px black;
+  text-shadow: 2px 2px 2px black;
+  cursor: pointer;
+}
+
+.delet-x-icon {
+  right: 0;
+  position: absolute;
+  margin: 130px auto;
+  text-align: right;
+  margin-right: 20%;
+  font-size: 30px;
+  color: #000;
+  cursor: pointer;
+}
+
+.delet-x-icon:hover {
+  color: greenyellow;
+  text-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+.delet-message-modal {
+  color: black;
+  margin: 180px auto;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(243, 9, 9, 0.826);
+}
+
+.delet-btn-eachElement:hover {
+  transform: scale(1.1);
+}
+
+.display-none {
+  display: none;
+}
+
+.updating-list-message {
+  font-style: italic;
+  opacity: 50%;
+  margin-left: auto;
+  margin-right: 2%;
 }

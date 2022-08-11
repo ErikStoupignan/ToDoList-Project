@@ -1,36 +1,53 @@
 // import _ from 'lodash';
+// import { add } from 'lodash';
 import './style.css';
+import Crud from './addAndRemove.js';
+// eslint-disable-next-line
+import Modal from './modalMenu.js';
 
-const arrayList = [
-  {
-    description: 'Wash the dishes',
-    complete: false,
-    index: 0,
-  },
-  {
-    description: 'Complete the project',
-    complete: false,
-    index: 1,
-  },
-  {
-    description: 'Take a walk',
-    complete: false,
-    index: 2,
-  },
-];
-
-function displayList() {
-  document.getElementById('ul-container-list').innerHTML = arrayList.map((items) => `<li id="listElement${items.index}"><input name="listElement${items.index}" type="checkbox"> ${items.description} <i class="fas fa-ellipsis-v"></i></li>`).join('');
+// Print the list
+export default function displayList(input) {
+  document.getElementById('ul-container-list').innerHTML = input.map((items, index) => `
+  <li id="${index}"><input id="listElement${index}" type="checkbox"> 
+  <input id='input${index}' value="${items.description}" type="text" disabled="disabled" class='input-list'> 
+  <i id="iconDots${index}" class="fas fa-ellipsis-v"></i></li>
+  `).join('');
 }
-displayList();
 
-document.getElementById('ul-container-list').addEventListener('click', (e) => {
-  document.getElementById(`${e.target.name}`).classList.toggle('text-crossLine');
+// Review if we have information in the local Storage
+displayList(Crud.add());
+
+// Call the function Add
+document.getElementById('input-list').addEventListener('change', () => {
+  displayList(Crud.add());
 });
 
-document.getElementById('clearbtn-list').addEventListener('click', () => {
-  document.getElementById('ul-container-list').innerHTML = (
-    '<li class="testing-btn"> Testing delete list for 2 seconds </li>'
-  );
-  setInterval(displayList, 2000);
+// Refresh the list complete
+const refreshIcons = document.getElementById('refresh-list');
+const updatingMessage = document.getElementById('updating-list-message');
+refreshIcons.addEventListener('click', () => {
+  displayList(Crud.add());
+  updatingMessage.classList.remove('display-none');
+  refreshIcons.classList.add('fa-spin');
+  setTimeout(() => {
+    refreshIcons.classList.remove('fa-spin');
+    updatingMessage.classList.add('display-none');
+  }, 1000);
+});
+
+// Open de Option menu
+document.getElementById('ul-container-list').addEventListener('click', (e) => {
+  const { id } = e.target;
+  let firstTime = true;
+  const regex = /(?<=iconDots)\d+$/;
+
+  if (firstTime) {
+    if (regex.test(id)) {
+      firstTime = false;
+      const index = id.match(regex)[0];
+      Modal.startModal(index);
+    }
+  } else {
+    firstTime = true;
+  }
 });
