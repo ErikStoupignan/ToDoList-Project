@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wbpack Exercise</title>
@@ -13,19 +14,27 @@
 <script defer src="main.js"></script></head>
 <body>
     <div id="container-list">
-
-        <h1 id="toDoList-title"><span>Today's To Do</span><i class="fas fa-sync"></i></h1> 
+        <!-- Input & title list -->
+        <h1 id="toDoList-title"><span id="title-text-list">Today's To Do</span><span id="updating-list-message" class="display-none updating-list-message">Updating...</span><i id='refresh-list' class="fas fa-sync refresh-list"></i></h1> 
         <div id="div-container-inputList">
-            <input placeholder="Add to your list... " id="input-list" type="text">
+            <input placeholder="Add to your list... " id="input-list" class='input-list-Main' type="text">
             <i id="icon-input" class="fas fa-hand-point-left"></i>
         </div>
 
         <!-- Space/ul to prinf the array from JavaScript -->
         <ul id="ul-container-list"></ul>
 
+        <!-- Clear all the buttons -->
         <button type="submit" id="clearbtn-list">Clear all completed</button>
 
     </div>
+    
+    <!-- modal menu -->
+    <section id="delet-Container-eachelement" class="delet-Container-eachelement display-none">
+        <i id="delet-x-icon" class="fas fa-times delet-x-icon"></i>
+        <p id="delet-message-modal" class="delet-message-modal">Delete this item permanently?</p>
+        <button id="delet-btn-eachElement" class="delet-btn-eachElement" >Delete</button>
+    </section>
 
 </body>
 </html>

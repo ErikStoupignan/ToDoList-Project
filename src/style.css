@@ -39,7 +39,7 @@ body {
   max-height: 80vh;
 
   grid-auto-rows: auto;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   cursor: pointer;
 }
 
@@ -69,12 +69,22 @@ body {
   cursor: text;
 }
 
-#input-list {
+.input-list-Main {
   width: var(--width-table-content);
   padding: var(--padding-table-content);
   border: none;
   outline: none;
   border-bottom: var(--border-bottom-list);
+}
+
+.input-list {
+  border: none;
+  background-color: transparent;
+  width: var(--width-table-content);
+  padding: var(--padding-table-content);
+  outline: none;
+  padding: 0;
+  margin: 0;
 }
 
 ::placeholder {
@@ -87,6 +97,8 @@ body {
 /* ul */
 #ul-container-list {
   list-style: none;
+  overflow-y: scroll;
+  max-height: 60vh;
 }
 
 /* li */
@@ -159,7 +171,7 @@ body {
   position: absolute;
   width: 100%;
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 700;
   text-shadow: 0 0 10px rgba(243, 9, 9, 0.826);
 }
