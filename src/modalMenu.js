@@ -23,6 +23,7 @@ export default class Modal {
         Crud.delete(this.index);
         document.getElementById('delet-Container-eachelement').classList.add('display-none');
         displayList(Crud.add());
+        Crud.showChecked();
       });
     }
 
