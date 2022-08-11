@@ -33,12 +33,11 @@ body {
   background-color: white;
   width: 80%;
   margin: 0 auto;
-
   margin-top: 5vw;
   max-width: 500px;
   max-height: 80vh;
-
   grid-auto-rows: auto;
+
   /* overflow-y: scroll; */
   cursor: pointer;
 }
@@ -81,7 +80,6 @@ body {
   border: none;
   background-color: transparent;
   width: var(--width-table-content);
-  padding: var(--padding-table-content);
   outline: none;
   padding: 0;
   margin: 0;
@@ -123,9 +121,9 @@ body {
 }
 
 /* Modal menu delet each element */
-.delet-Container-eachelement{
+.delet-Container-eachelement {
   background-color: rgba(32, 29, 126, 0.084);
-  backdrop-filter: blur(.2rem);
+  backdrop-filter: blur(0.2rem);
   position: fixed;
   top: 0;
   left: 0;
@@ -150,7 +148,6 @@ body {
 
 .delet-x-icon {
   right: 0;
-  color: black;
   position: absolute;
   margin: 130px auto;
   text-align: right;
@@ -165,7 +162,7 @@ body {
   text-shadow: 0 0 5px rgb(0, 0, 0);
 }
 
-.delet-message-modal{
+.delet-message-modal {
   color: black;
   margin: 180px auto;
   position: absolute;
@@ -190,4 +187,3 @@ body {
   margin-left: auto;
   margin-right: 2%;
 }
-

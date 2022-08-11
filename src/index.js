@@ -1,21 +1,21 @@
 // import _ from 'lodash';
 // import { add } from 'lodash';
 import './style.css';
-import Crud  from './addAndRemove.js';
-import Modal  from './modalMenu.js';
-
-// Review if we have information in the local Storage
-displayList(Crud.add());
+import Crud from './addAndRemove.js';
+// eslint-disable-next-line
+import Modal from './modalMenu.js';
 
 // Print the list
-export function displayList(input) {
-  document.getElementById('ul-container-list').innerHTML = input.map((items,index) => 
-  `
+export default function displayList(input) {
+  document.getElementById('ul-container-list').innerHTML = input.map((items, index) => `
   <li id="${index}"><input id="listElement${index}" type="checkbox"> 
   <input id='input${index}' value="${items.description}" type="text" disabled="disabled" class='input-list'> 
   <i id="iconDots${index}" class="fas fa-ellipsis-v"></i></li>
   `).join('');
-};
+}
+
+// Review if we have information in the local Storage
+displayList(Crud.add());
 
 // Call the function Add
 document.getElementById('input-list').addEventListener('change', () => {
@@ -37,22 +37,17 @@ refreshIcons.addEventListener('click', () => {
 
 // Open de Option menu
 document.getElementById('ul-container-list').addEventListener('click', (e) => {
-    const { id } = e.target;
-    let firstTime = true;
-    let regex = /(?<=iconDots)\d+$/;
+  const { id } = e.target;
+  let firstTime = true;
+  const regex = /(?<=iconDots)\d+$/;
 
-    if(firstTime) {
-      if (regex.test(id)) {
-        firstTime = false;
-        const index = id.match(regex)[0];
-        Modal.startModal(index);
-      }
-    } else {
-      firstTime = true;
+  if (firstTime) {
+    if (regex.test(id)) {
+      firstTime = false;
+      const index = id.match(regex)[0];
+      Modal.startModal(index);
     }
+  } else {
+    firstTime = true;
   }
-);
-
-
-
-
+});

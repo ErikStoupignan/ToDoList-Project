@@ -1,13 +1,14 @@
-import Crud  from './addAndRemove.js';
-import { displayList } from './index.js';
+import Crud from './addAndRemove.js';
+// eslint-disable-next-line
+import displayList from './index.js';
 
 let firstTime = true;
 let changeArray = [];
 
+// eslint-disable-next-line
 export default class Modal {
-  
-  static startModal (input) {
-    document.getElementById('delet-message-modal').innerHTML = 'To edit the task, just click on X and then click on the task'
+  static startModal(input) {
+    document.getElementById('delet-message-modal').innerHTML = 'To edit the task, just click on X and then click on the task';
     document.getElementById('delet-Container-eachelement').classList.remove('display-none');
 
     this.index = input;
@@ -18,60 +19,57 @@ export default class Modal {
     if (firstTime) {
       firstTime = false;
       deleteBtn.addEventListener('click', () => {
-        
         document.getElementById('ul-container-list').innerHTML = '';
         Crud.delete(this.index);
         document.getElementById('delet-Container-eachelement').classList.add('display-none');
         displayList(Crud.add());
-
       });
     }
 
     // Close the menu with the x icon
-    document.getElementById('delet-x-icon').addEventListener('click', this.closeModal );
-    return;
+    document.getElementById('delet-x-icon').addEventListener('click', this.closeModal);
   }
 
-  static closeModal () {
+  static closeModal() {
     document.getElementById('delet-Container-eachelement').classList.add('display-none');
     let newValue;
     let path;
     firstTime = true;
-    
+
     document.getElementById('ul-container-list').addEventListener('click', (e) => {
       const { id } = e.target;
-      let regex = /(?<=input)\d+$/;
+      const regex = /(?<=input)\d+$/;
 
       if (firstTime) {
         if (regex.test(id)) {
           firstTime = false;
           const index = id.match(regex)[0];
           path = document.getElementById(id);
-          path.disabled = false; 
-          path.style.border= '1px solid black';
+          path.disabled = false;
+          path.style.border = '1px solid black';
 
           path.addEventListener('change', () => {
             newValue = document.getElementById(id).value;
-            path.disabled = 'disabled'; 
-            path.style.border= 'none';
-            Modal.changeValue(newValue,index);
-          })
-
+            path.disabled = 'disabled';
+            path.style.border = 'none';
+            Modal.changeValue(newValue, index);
+          });
         } else {
           firstTime = true;
         }
       }
-    })
+    });
   }
 
-  static changeValue (newValue,position) {
+  static changeValue(newValue, position) {
     changeArray = [];
-    if(newValue === '') return;
-    if(localStorage.getItem('data')){
+    if (newValue === '') return;
+    if (localStorage.getItem('data')) {
       changeArray = JSON.parse(localStorage.getItem('data'));
     }
 
-    for ( let i = 0 ; i < changeArray.length ; i++) {
+    for (let i = 0; i < changeArray.length; i += 1) {
+      // eslint-disable-next-line
       if (changeArray[i].index == position) {
         changeArray[i].description = newValue;
         localStorage.setItem('data', JSON.stringify(changeArray));
@@ -79,8 +77,3 @@ export default class Modal {
     }
   }
 }
-
-
-
-
-
