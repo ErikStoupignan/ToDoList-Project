@@ -1,6 +1,8 @@
 // import _ from 'lodash';
 // import { add } from 'lodash';
 import './style.css';
+// eslint-disable-next-line
+import Checkbox from './checkbox.js';
 import Crud from './addAndRemove.js';
 // eslint-disable-next-line
 import Modal from './modalMenu.js';
@@ -8,18 +10,19 @@ import Modal from './modalMenu.js';
 // Print the list
 export default function displayList(input) {
   document.getElementById('ul-container-list').innerHTML = input.map((items, index) => `
-  <li id="${index}"><input id="listElement${index}" type="checkbox"> 
+  <li id="${index}"><input id="listElement${index}" name='${index}' type="checkbox" value=${items.complete}> 
   <input id='input${index}' value="${items.description}" type="text" disabled="disabled" class='input-list'> 
   <i id="iconDots${index}" class="fas fa-ellipsis-v"></i></li>
   `).join('');
 }
 
-// Review if we have information in the local Storage
-displayList(Crud.add());
+window.addEventListener('DOMContenLoaded', displayList(Crud.add()));
+window.addEventListener('DOMContenLoaded', Checkbox.testCheckbox());
 
 // Call the function Add
 document.getElementById('input-list').addEventListener('change', () => {
   displayList(Crud.add());
+  Crud.showChecked();
 });
 
 // Refresh the list complete
@@ -27,6 +30,7 @@ const refreshIcons = document.getElementById('refresh-list');
 const updatingMessage = document.getElementById('updating-list-message');
 refreshIcons.addEventListener('click', () => {
   displayList(Crud.add());
+  Crud.showChecked();
   updatingMessage.classList.remove('display-none');
   refreshIcons.classList.add('fa-spin');
   setTimeout(() => {
@@ -51,3 +55,6 @@ document.getElementById('ul-container-list').addEventListener('click', (e) => {
     firstTime = true;
   }
 });
+
+// Call the function checkbox
+document.getElementById('clearbtn-list').addEventListener('click', () => Checkbox.cleanAllChecked());

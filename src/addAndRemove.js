@@ -19,7 +19,7 @@ export default class Crud {
     document.getElementById('input-list').value = '';
 
     arrayList.push(new Crud(input));
-    this.update();
+    this.update(arrayList);
 
     localStorage.setItem('data', JSON.stringify(arrayList));
     return arrayList;
@@ -27,14 +27,25 @@ export default class Crud {
 
   static delete(index) {
     arrayList.splice(index, 1);
-    this.update();
+    this.update(arrayList);
     localStorage.setItem('data', JSON.stringify(arrayList));
     return arrayList;
   }
 
-  static update() {
-    for (let i = 0; i < arrayList.length; i += 1) {
-      arrayList[i].index = i;
+  static update(array) {
+    for (let i = 0; i < array.length; i += 1) {
+      array[i].index = i;
     }
+  }
+
+  static showChecked() {
+    const checkboxArray = Crud.add();
+    for (let i = 0; i < checkboxArray.length; i += 1) {
+      if (checkboxArray[i].complete === true) {
+        document.getElementById(`listElement${i}`).checked = true;
+        document.getElementById(`input${i}`).classList.add('line-through');
+      }
+    }
+    return checkboxArray;
   }
 }
