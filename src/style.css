@@ -122,7 +122,7 @@ body {
 
 /* Modal menu delet each element */
 .delet-Container-eachelement {
-  background-color: rgba(32, 29, 126, 0.084);
+  background-color: rgba(16, 12, 126, 0.084);
   backdrop-filter: blur(0.2rem);
   position: fixed;
   top: 0;
