@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/ErikStoupignan/ToDoList-Project/issues"
   },
-  "homepage": "https://github.com/ErikStoupignan/ToDoList-Project/dist",
+  "homepage": "https://github.com/ErikStoupignan/ToDoList-Project/",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.5",
