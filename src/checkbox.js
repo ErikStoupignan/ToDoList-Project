@@ -1,17 +1,15 @@
-// import { get } from 'lodash';
-import Crud from './addAndRemove.js';
-// eslint-disable-next-line
-import displayList from './index.js';
+import AddAndRemove from './addAndRemove.js';
+
 let checkboxArray;
 
 export default class Checkbox {
   static testCheckbox() {
-    Crud.showChecked();
+    AddAndRemove.showChecked();
 
     document.getElementById('ul-container-list').addEventListener('click', (e) => {
       const { id } = e.target;
       const regex = /(?<=listElement)\d+$/;
-      checkboxArray = Crud.add();
+      checkboxArray = AddAndRemove.add();
 
       if (regex.test(id)) {
         const position = id.match(regex)[0];
@@ -30,10 +28,10 @@ export default class Checkbox {
   }
 
   static cleanAllChecked() {
-    checkboxArray = Crud.add();
+    checkboxArray = AddAndRemove.add();
     checkboxArray = checkboxArray.filter((item) => item.complete !== true);
-    Crud.update(checkboxArray);
+    AddAndRemove.update(checkboxArray);
     localStorage.setItem('data', JSON.stringify(checkboxArray));
-    displayList(Crud.add());
+    AddAndRemove.displayList(AddAndRemove.add());
   }
 }

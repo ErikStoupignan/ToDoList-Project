@@ -1,10 +1,18 @@
 let arrayList = [];
 
-export default class Crud {
+export default class AddAndRemove {
   constructor(description, index, status = false) {
     this.description = description;
     this.complete = status;
     this.index = index;
+  }
+
+  static displayList(input) {
+    document.getElementById('ul-container-list').innerHTML = input.map((items, index) => `
+    <li id="${index}"><input id="listElement${index}" name='${index}' type="checkbox" value=${items.complete}> 
+    <input id='input${index}' value="${items.description}" type="text" disabled="disabled" class='input-list'> 
+    <i id="iconDots${index}" class="fas fa-ellipsis-v"></i></li>
+    `).join('');
   }
 
   static add() {
@@ -18,10 +26,11 @@ export default class Crud {
 
     document.getElementById('input-list').value = '';
 
-    arrayList.push(new Crud(input));
+    arrayList.push(new AddAndRemove(input));
     this.update(arrayList);
 
     localStorage.setItem('data', JSON.stringify(arrayList));
+    this.displayList(arrayList);
     return arrayList;
   }
 
@@ -39,7 +48,7 @@ export default class Crud {
   }
 
   static showChecked() {
-    const checkboxArray = Crud.add();
+    const checkboxArray = AddAndRemove.add();
     for (let i = 0; i < checkboxArray.length; i += 1) {
       if (checkboxArray[i].complete === true) {
         document.getElementById(`listElement${i}`).checked = true;
