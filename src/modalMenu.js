@@ -1,6 +1,4 @@
-import Crud from './addAndRemove.js';
-// eslint-disable-next-line
-import displayList from './index.js';
+import AddAndRemove from './addAndRemove.js';
 
 let firstTime = true;
 let changeArray = [];
@@ -20,10 +18,10 @@ export default class Modal {
       firstTime = false;
       deleteBtn.addEventListener('click', () => {
         document.getElementById('ul-container-list').innerHTML = '';
-        Crud.delete(this.index);
+        AddAndRemove.delete(this.index);
         document.getElementById('delet-Container-eachelement').classList.add('display-none');
-        displayList(Crud.add());
-        Crud.showChecked();
+        AddAndRemove.displayList(AddAndRemove.add());
+        AddAndRemove.showChecked();
       });
     }
 
