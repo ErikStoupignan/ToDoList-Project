@@ -5,30 +5,27 @@
 
 import AddAndRemove from '../addAndRemove.js';
 import ModalMenu from '../modalMenu.js';
+import './app.test.js';
+
 let changeArray;
+let list;
 
 describe('Testing the class Add&Remove', () => {
   it('Edit function', () => {
-    // Arrange
-    document.body.innerHTML =
-      `<input id="input-list" value="first text">` +
-      `<ul id="ul-container-list"></ul>`;
-
-      // Act
-      AddAndRemove.add();
-      changeArray = ModalMenu.changeValue('changed text', 0);
-      
-      // Assert
-      expect(changeArray[0].description).toBe('changed text');
+      let index = 0;
+      changeArray = ModalMenu.changeValue('changed text', index);
+      AddAndRemove.displayList(changeArray);
+      list = document.querySelectorAll('#ul-container-list li input');
+      expect(list[index*2+1].value).toBe('changed text');
   })
 
-  it('Completed Status function', () => {
+  // it('Completed Status function', () => {
 
-  })
+  // })
 
-  it('"Clear all completed" function', () => {
+  // it('"Clear all completed" function', () => {
 
-  })
+  // })
 });
 
 
