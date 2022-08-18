@@ -74,5 +74,7 @@ export default class Modal {
         localStorage.setItem('data', JSON.stringify(changeArray));
       }
     }
+    // eslint-disable-next-line consistent-return
+    return changeArray;
   }
 }

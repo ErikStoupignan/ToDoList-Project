@@ -60,6 +60,20 @@ export default class AddAndRemove {
     }
     return checkboxArray;
   }
-}
 
-// export {arrayList};
+  static refresh() {
+    this.displayList(this.add());
+    this.showChecked();
+  }
+
+  static animationRefresh() {
+    const refreshIcons = document.getElementById('refresh-list');
+    const updatingMessage = document.getElementById('updating-list-message');
+    updatingMessage.classList.remove('display-none');
+    refreshIcons.classList.add('fa-spin');
+    setTimeout(() => {
+      refreshIcons.classList.remove('fa-spin');
+      updatingMessage.classList.add('display-none');
+    }, 1000);
+  }
+}
