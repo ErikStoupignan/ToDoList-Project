@@ -14,16 +14,9 @@ document.getElementById('input-list').addEventListener('change', () => {
 
 // Refresh the list complete
 const refreshIcons = document.getElementById('refresh-list');
-const updatingMessage = document.getElementById('updating-list-message');
 refreshIcons.addEventListener('click', () => {
-  AddAndRemove.displayList(AddAndRemove.add());
-  AddAndRemove.showChecked();
-  updatingMessage.classList.remove('display-none');
-  refreshIcons.classList.add('fa-spin');
-  setTimeout(() => {
-    refreshIcons.classList.remove('fa-spin');
-    updatingMessage.classList.add('display-none');
-  }, 1000);
+  AddAndRemove.refresh();
+  AddAndRemove.animationRefresh();
 });
 
 // Open de Option menu
