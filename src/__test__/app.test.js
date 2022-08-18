@@ -1,6 +1,7 @@
 /**
  * @jest-environment jsdom
  */
+/* eslint-disable*/
 
 import AddAndRemove from '../addAndRemove.js';
 let list;
@@ -8,6 +9,7 @@ let list;
 describe('Testing the class Add&Remove', () => {
   it('Add function', () => {
 
+    // Add 5 books 
     for (let i = 1 ; i <= 5 ; i += 1) {
       document.body.innerHTML =
       `<input id="input-list" value="libro${i}-add">` +
@@ -15,15 +17,13 @@ describe('Testing the class Add&Remove', () => {
       AddAndRemove.add();
     }
 
-
-    
-
     list = document.querySelectorAll('#ul-container-list li');
     expect(list).toHaveLength(5);
   })
 
   it('Remove function', () => {
     
+    // Delet 2 books in the index [0] and [3]
     AddAndRemove.delete(0);
     AddAndRemove.delete(3);
         

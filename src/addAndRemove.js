@@ -24,8 +24,6 @@ export default class AddAndRemove {
     const input = document.getElementById('input-list').value;
     if (input === '') return arrayList;
 
-    
-
     arrayList.push(new AddAndRemove(input));
     this.update(arrayList);
 
