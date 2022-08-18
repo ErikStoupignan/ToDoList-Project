@@ -8,7 +8,7 @@ export default class AddAndRemove {
   }
 
   static displayList(input) {
-    document.getElementById('ul-container-list').innerHTML = input.map((items, index) => `
+    document.querySelector('#ul-container-list').innerHTML = input.map((items, index) => `
     <li id="${index}"><input id="listElement${index}" name='${index}' type="checkbox" value=${items.complete}> 
     <input id='input${index}' value="${items.description}" type="text" disabled="disabled" class='input-list'> 
     <i id="iconDots${index}" class="fas fa-ellipsis-v"></i></li>
@@ -24,20 +24,24 @@ export default class AddAndRemove {
     const input = document.getElementById('input-list').value;
     if (input === '') return arrayList;
 
-    document.getElementById('input-list').value = '';
+    
 
     arrayList.push(new AddAndRemove(input));
     this.update(arrayList);
 
     localStorage.setItem('data', JSON.stringify(arrayList));
     this.displayList(arrayList);
+    document.getElementById('input-list').value = '';
     return arrayList;
   }
 
   static delete(index) {
+    // arrayList = AddAndRemove.add();
     arrayList.splice(index, 1);
     this.update(arrayList);
     localStorage.setItem('data', JSON.stringify(arrayList));
+    // arrayList = JSON.parse(localStorage.getItem('data'));
+    this.displayList(arrayList);
     return arrayList;
   }
 
@@ -45,6 +49,7 @@ export default class AddAndRemove {
     for (let i = 0; i < array.length; i += 1) {
       array[i].index = i;
     }
+    return array;
   }
 
   static showChecked() {
@@ -58,3 +63,5 @@ export default class AddAndRemove {
     return checkboxArray;
   }
 }
+
+// export {arrayList};
