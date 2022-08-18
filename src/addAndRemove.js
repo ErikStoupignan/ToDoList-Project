@@ -61,12 +61,12 @@ export default class AddAndRemove {
     return checkboxArray;
   }
 
-  static refresh () {
+  static refresh() {
     this.displayList(this.add());
     this.showChecked();
   }
 
-  static animationRefresh () {
+  static animationRefresh() {
     const refreshIcons = document.getElementById('refresh-list');
     const updatingMessage = document.getElementById('updating-list-message');
     updatingMessage.classList.remove('display-none');
@@ -77,4 +77,3 @@ export default class AddAndRemove {
     }, 1000);
   }
 }
-
