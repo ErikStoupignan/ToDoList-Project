@@ -74,5 +74,6 @@ export default class Modal {
         localStorage.setItem('data', JSON.stringify(changeArray));
       }
     }
+    return changeArray;
   }
 }
